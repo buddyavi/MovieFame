@@ -6,12 +6,15 @@ import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
+
 /**
  * Mapper class which extracts the userId and ratings from the text file
+ * 
  * @author avi sanadhya
- *
+ * 
  */
-public class MovieFameMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class MovieFameMapper extends
+		Mapper<LongWritable, Text, Text, IntWritable> {
 
 	String str[] = null;
 
@@ -20,7 +23,7 @@ public class MovieFameMapper extends Mapper<LongWritable, Text, Text, IntWritabl
 			Text value,
 			org.apache.hadoop.mapreduce.Mapper<LongWritable, Text, Text, IntWritable>.Context context)
 			throws IOException, InterruptedException {
-        //File separator is :
+		// File separator is :
 		str = value.toString().split(":");
 
 		context.write(new Text(str[1]),

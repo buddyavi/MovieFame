@@ -21,7 +21,7 @@ public class MovieFameReducer extends Reducer<Text, IntWritable, Text, Text> {
 			org.apache.hadoop.mapreduce.Reducer<Text, IntWritable, Text, Text>.Context out)
 			throws java.io.IOException, InterruptedException {
 		int count = 1;
-		float sum,max,min,temp,avg = 0;
+		float sum, max, min, temp, avg = 0;
 		Iterator<IntWritable> rating = value.iterator();
 		sum = max = min = rating.next().get();
 		// Calculating Max,Min and Avg for a particular movie
